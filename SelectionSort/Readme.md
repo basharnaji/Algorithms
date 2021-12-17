@@ -1,15 +1,18 @@
 # SelectionSort
 
-Summary: The idea behind SelectionSort is to find the "smallest" member of your list at each iteration of the array.  This is not a high performing algorithm as it needs to look at all the data set at each iteration.  
+**Summary:**
+The idea behind SelectionSort is to find the "smallest" member of your list at each iteration of the array.  This is not a high performing algorithm as it needs to look at all the data set at each iteration.  
 
-Performance: O(n<sup>2</sup>)
+**Performance:** O(n<sup>2</sup>)
 
+
+**Flow Chart**
 
 ![alt text][flowchart]
 
 [flowchart]: SelectionSort.png "Algorithm Flowchart"
 
-Sample Code:
+**Sample Code:**
 
 ```python
 # To find the smallest value in the array provided
