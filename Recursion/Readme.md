@@ -6,9 +6,10 @@ The idea behind Recursion is a "procedure" that repeats itself until some condit
 2. Counting down like a timer (you keep on decrementing until you hit 0)
 
 **Sample Code**
-```python
 
-# Couting down to 0
+An example of where recursion can be used to countdown from some arbitrary number to zero.
+```python
+# Counting down to 0
 def countdown(i):
     if (i <= 0):
         return i
