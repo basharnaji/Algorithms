@@ -7,3 +7,5 @@ This repo is my personal documentation of Algorithms as I learned them, primaril
 [2. SelectionSort](./SelectionSort)
 
 [3. Recursion](./Recursion)
+
+[4. QuickSort](./QuickSort)
