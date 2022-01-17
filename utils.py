@@ -1,12 +1,24 @@
-# binary Search function
-# Assumption: provided with a sorted array
+""" 
+Binary Search function
+
+Assumption: provided with a sorted array
+Input: a sorted list, item to find in the list
+Output: index of the item being searched
+"""
+
+
 def binary_search(arr, item):
+    # Set min, max indexes based on size of list
     min_val = 0
     max_val = len(arr) - 1
 
     while min_val <= max_val:
+        # determine the midpoint and its value
         mid = (min_val + max_val) // 2
         guess = arr[mid]
+
+        # check if our guess is right, otherwise determine
+        #      the side of the list its on
         if guess == item:
             return mid
         if guess > item:
@@ -16,7 +28,14 @@ def binary_search(arr, item):
     return -1
 
 
-# To find the smallest value in the array provided
+""" 
+To find the smallest value in the list provided
+
+Input: a list
+Output: index of the smallest element in the list
+"""
+
+
 def getMinimum(arr):
     min_value = arr[0]
     min_idx = 0
@@ -27,8 +46,14 @@ def getMinimum(arr):
     return min_idx
 
 
-# SelectionSort Algorithm
-#  requires an array to be sorted
+"""
+SelectionSort Algorithm
+
+Input: must be providecd with a list to be sorted
+Output: Sorted list
+"""
+
+
 def SelectionSort(arr):
     new_arr = []
     for i in range(len(arr)):
@@ -37,8 +62,14 @@ def SelectionSort(arr):
     return new_arr
 
 
-# Quicksort algorithm
-#   requires an array to be sorted
+"""
+Quicksort algorithm
+
+Input: a list of numbers to be sorted
+Output: Sorted list
+"""
+
+
 def quicksort(arr):
     if len(arr) < 2:
         return arr
