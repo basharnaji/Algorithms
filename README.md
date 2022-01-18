@@ -9,3 +9,5 @@ This repo is my personal documentation of Algorithms as I learned them, primaril
 [3. Recursion](./Recursion)
 
 [4. QuickSort](./QuickSort)
+
+[5. Breadth-first Search](./BreadthFirstSearch)
