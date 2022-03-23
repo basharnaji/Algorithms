@@ -20,6 +20,12 @@ _This is a sample graph to show path from San Diego to San Franciscon with the d
 
 ```python
 
+from collections import deque
+
+def is_city_SF(name):
+    if (name == 'San Francisco'):
+        return True
+
 # Creating the graph 
 #   a dictionary with the key being the node and the values are the nodes
 #   connected to it.
@@ -33,3 +39,29 @@ Path['Santa Barbara'] = ['Monterey']
 Path['Stockton'] = ['San Francisco']
 Path['Monterey'] = ['San Francisco']
 Path['San Francisco'] = []
+
+# Creating some dead ends for negative testing
+Path['Las Vegas'] = ['Denver', 'Portland']
+Path['Denver'] = []
+Path['Portland'] = []
+
+
+def search_city(start_city):
+    search_queue = deque()
+    visited_city = set()
+    search_queue += Path[start_city]
+
+    while search_queue:
+        city = search_queue.popleft()
+        if city not in visited_city:
+            if is_city_SF(city):
+                print ('we have reached San Francisco')
+                return True
+            else:
+                search_queue += Path[city]
+        visited_city.add(city)
+    print ('San Francisco is not reachable')
+    return False
+
+
+search_city('San Diego')
