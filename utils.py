@@ -84,3 +84,55 @@ def quicksort(arr):
         larger = [i for i in arr[1:] if i > pivot]
 
         return quicksort(smaller) + [pivot] + quicksort(larger)
+
+
+"""
+Breadth First Search algorithm
+
+This algorithm requires a graph that has the edges to explore.  The sample provided is specific
+to finding the city of San Francisco but this code can be modified for other similar purposes
+
+"""
+
+from collections import deque
+
+def is_city_string(name, str_city):
+    if (name == str_city):
+        return True
+
+# Creating the graph 
+#   a dictionary with the key being the node and the values are the nodes
+#   connected to it.
+Path = {}
+Path['San Diego'] = ['San Bernardino', 'Los Angeles', 'Long Beach']
+Path['San Bernardino'] = ['Fresno']
+Path['Los Angeles'] = ['San Francisco']
+Path['Long Beach'] = ['Santa Barbara']
+Path['Fresno'] = ['Stockton']
+Path['Santa Barbara'] = ['Monterey']
+Path['Stockton'] = ['San Francisco']
+Path['Monterey'] = ['San Francisco']
+Path['San Francisco'] = []
+
+# Creating some dead ends for negative testing
+Path['Las Vegas'] = ['Denver', 'Portland']
+Path['Denver'] = []
+Path['Portland'] = []
+
+
+def search_city(start_city):
+    search_queue = deque()
+    visited_city = set()
+    search_queue += Path[start_city]
+
+    while search_queue:
+        city = search_queue.popleft()
+        if city not in visited_city:
+            if is_city_string(city, 'San Francisco'):
+                print ('we have reached San Francisco')
+                return True
+            else:
+                search_queue += Path[city]
+        visited_city.add(city)
+    print ('San Francisco is not reachable')
+    return False
