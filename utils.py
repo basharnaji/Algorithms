@@ -1,3 +1,5 @@
+from collections import deque
+
 """ 
 Binary Search function
 
@@ -93,8 +95,6 @@ This algorithm requires a graph that has the edges to explore.  The sample provi
 to finding the city of San Francisco but this code can be modified for other similar purposes
 
 """
-
-from collections import deque
 
 def is_city_string(name, str_city):
     if (name == str_city):
