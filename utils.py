@@ -120,19 +120,49 @@ Path['Denver'] = []
 Path['Portland'] = []
 
 
-def search_city(start_city):
+def search_city(start_city, str_city):
     search_queue = deque()
     visited_city = set()
     search_queue += Path[start_city]
+    visited_city.add(start_city)
 
     while search_queue:
         city = search_queue.popleft()
         if city not in visited_city:
-            if is_city_string(city, 'San Francisco'):
-                print ('we have reached San Francisco')
-                return True
+            if is_city_string(city, str_city):
+                print (f'Path to {str_city} was found')
+                shortest_path = find_path (Path, start_city, str_city)
+                return shortest_path
             else:
                 search_queue += Path[city]
-        visited_city.add(city)
-    print ('San Francisco is not reachable')
+                visited_city.add(city)
     return False
+
+def find_path(graph, start_city, end_city):
+    path_list = [[start_city]]
+    path_index = 0
+    # To keep track of previously visited nodes
+    previous_nodes = {start_city}
+    if start_city == end_city:
+        return path_list[0]
+        
+    while path_index < len(path_list):
+        current_path = path_list[path_index]
+        last_node = current_path[-1]
+        next_nodes = graph[last_node]
+        # Search goal node
+        if end_city in next_nodes:
+            current_path.append(end_city)
+            return current_path
+        # Add new paths
+        for next_node in next_nodes:
+            if not next_node in previous_nodes:
+                new_path = current_path[:]
+                new_path.append(next_node)
+                path_list.append(new_path)
+                # To avoid backtracking
+                previous_nodes.add(next_node)
+        # Continue to next path in list
+        path_index += 1
+    # No path is found
+    return []    
