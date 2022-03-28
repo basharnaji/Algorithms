@@ -11,7 +11,7 @@ Breadth-first search doesn't include any "cost" in determining the shortest path
 
 **Graph**
 
-_This is a sample graph to show path from San Diego to San Franciscon with the different paths._  The objective of the algorithm is to find the shortest path (least number of hops)
+_This is a sample graph to show path from San Diego to San Francisco with the different paths._  The objective of the algorithm is to find if a path exists betweeen two nodes and if it does than what is the shortest path (least number of hops).
 ![alt text][Graph]
 
 [Graph]: BreadthFirstSearch.png "Sample Graph"
