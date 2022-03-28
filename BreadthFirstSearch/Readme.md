@@ -31,9 +31,9 @@ def is_city_string(name, str_city):
 #   connected to it.
 Path = {}
 Path['San Diego'] = ['San Bernardino', 'Los Angeles', 'Long Beach']
-Path['San Bernardino'] = ['Fresno']
-Path['Los Angeles'] = ['San Francisco']
-Path['Long Beach'] = ['Santa Barbara']
+Path['San Bernardino'] = ['Fresno', 'Los Angeles']
+Path['Los Angeles'] = ['San Francisco', 'Fresno', 'Santa Barbara', 'Monterey']
+Path['Long Beach'] = ['Los Angeles']
 Path['Fresno'] = ['Stockton']
 Path['Santa Barbara'] = ['Monterey']
 Path['Stockton'] = ['San Francisco']
