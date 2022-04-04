@@ -1,6 +1,7 @@
 # Breadth First Search
 
 **Summary:**
+
 Breadth First Search algorithm is a **_graph based_** algorithm that is used to answer 2 main questions:
 1. does a connection exist between object a and object z?
 2. What is the shortest path between these two objects?
@@ -9,7 +10,16 @@ This algorithm is a simple heuristic to determine shortest path as in the number
 
 Breadth-first search doesn't include any "cost" in determining the shortest path; Djikstra's algorithm does.
 
-**Graph**
+**Performance:**
+
+Breadth-first search is commnonly written as O(V+E), where V is for the number of vertices and E for the number of Edges
+
+Vertices is the the number of nodes that the algorithm needs to tranverse through (<i>cities in our example</i>)
+Edges are the number of connections that exists between the nodes (<i>different paths/connections points in our example</i>)
+
+<br>
+
+**Graph:**
 
 _This is a sample graph to show path from San Diego to San Francisco with the different paths._  The objective of the algorithm is to find if a path exists betweeen two nodes and if it does than what is the shortest path (least number of hops).
 ![alt text][Graph]
