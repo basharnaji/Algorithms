@@ -3,7 +3,16 @@
 **Summary:**
 Unlike [Breadth First Search](../BreadthFirstSearch/) algorithm which calculates the shortest path based on _number of hops_, Dijkstra's algorithm calculates the shortest path based on _cost_.
 
-This algorithm uses a _cost/weight_ between nodes to determine the shortest. *Note*: When there is a negative cost Dijkstra's algorithm can not be used and you should use Bellman-Ford algorithm
+This algorithm uses a _cost/weight_ between nodes to determine the shortest. *Note*: When there is a negative cost Dijkstra's algorithm can not be used and you should use Bellman-Ford algorithm.  Also Dijkstra's algorithm can not be used when there are cycles in your graph (starting from a node and ending up where you started)
+
+The algorithm can be summarized by the following steps:
+
+1. Find the chepest node
+2. Calculate if there a cheper path to its neighbors, if so then update cost for that node
+3. Repeat until this is done for all nodes
+4. Determine the cheapest path
+
+<br>
 
 **Graph**
 
