@@ -94,56 +94,39 @@ Breadth First Search algorithm
 This algorithm requires a graph that has the edges to explore.  The sample provided is specific
 to finding the city of San Francisco but this code can be modified for other similar purposes
 
+Input: Graph that contians nodes and edges, starting node name, destination node name
+Output: Does a path exist between starting & destination node, if so the shortest path in terms of hops
+
 """
 
-def is_city_string(name, str_city):
-    if (name == str_city):
+def is_node_found(name, str_node):
+    if (name == str_node):
         return True
 
-# Creating the graph 
-#   a dictionary with the key being the node and the values are the nodes
-#   connected to it.
-Path = {}
-Path['San Diego'] = ['San Bernardino', 'Los Angeles', 'Long Beach']
-Path['San Bernardino'] = ['Fresno', 'Los Angeles']
-Path['Los Angeles'] = ['San Francisco', 'Fresno', 'Santa Barbara', 'Monterey']
-Path['Long Beach'] = ['Los Angeles']
-Path['Fresno'] = ['Stockton']
-Path['Santa Barbara'] = ['Monterey']
-Path['Stockton'] = ['San Francisco']
-Path['Monterey'] = ['San Francisco']
-Path['San Francisco'] = []
-
-# Creating some dead ends for negative testing
-Path['Las Vegas'] = ['Denver', 'Portland']
-Path['Denver'] = []
-Path['Portland'] = []
-
-
-def search_city(start_city, str_city):
+def search_city(Path, start_node, dest_node):
     search_queue = deque()
-    visited_city = set()
-    search_queue += Path[start_city]
-    visited_city.add(start_city)
+    visited_node = set()
+    search_queue += Path[start_node]
+    visited_node.add(start_node)
 
     while search_queue:
-        city = search_queue.popleft()
-        if city not in visited_city:
-            if is_city_string(city, str_city):
-                print (f'Path to {str_city} was found')
-                shortest_path = find_path (Path, start_city, str_city)
+        node_name = search_queue.popleft()
+        if node_name not in visited_node:
+            if is_node_found(node_name, dest_node):
+                print (f'Path to {dest_node} was found')
+                shortest_path = find_path (Path, start_node, dest_node)
                 return shortest_path
             else:
-                search_queue += Path[city]
-                visited_city.add(city)
+                search_queue += Path[node_name]
+                visited_city.add(node_name)
     return False
 
-def find_path(graph, start_city, end_city):
-    path_list = [[start_city]]
+def find_path(graph, start_node, dest_node):
+    path_list = [[start_node]]
     path_index = 0
     # To keep track of previously visited nodes
-    previous_nodes = {start_city}
-    if start_city == end_city:
+    previous_nodes = {start_node}
+    if start_node == dest_node:
         return path_list[0]
         
     while path_index < len(path_list):
@@ -151,8 +134,8 @@ def find_path(graph, start_city, end_city):
         last_node = current_path[-1]
         next_nodes = graph[last_node]
         # Search goal node
-        if end_city in next_nodes:
-            current_path.append(end_city)
+        if dest_node in next_nodes:
+            current_path.append(dest_node)
             return current_path
         # Add new paths
         for next_node in next_nodes:
