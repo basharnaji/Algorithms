@@ -21,3 +21,42 @@ _This is a sample graph to show path from San Diego to San Francisco with the di
 ![alt text][Graph]
 
 [Graph]: Dijkstra.png "Sample Graph"
+
+
+```python
+
+# creating the graph of the nodes above
+# creating the graph of the nodes above
+Path = dict()
+Path['San Diego'] = dict()
+Path['San Diego']['San Bernardino'] = 6
+Path['San Diego']['Los Angeles'] = 15
+Path['San Diego'][ 'Long Beach'] = 8
+
+Path['San Bernardino'] = dict()
+Path['San Bernardino']['Fresno'] = 3
+Path['San Bernardino']['Los Angeles'] = 7
+
+Path['Los Angeles'] = dict()
+Path['Los Angeles']['San Francisco'] = 15
+Path['Los Angeles']['Fresno'] = 5
+Path['Los Angeles']['Santa Barbara'] = 6
+Path['Los Angeles']['Monterey'] = 6
+
+Path['Long Beach'] = dict()
+Path['Long Beach']['Los Angeles'] = 6
+
+Path['Fresno'] = dict()
+Path['Fresno']['Stockton'] = 4
+
+Path['Santa Barbara'] = dict()
+Path['Santa Barbara']['Monterey'] = 5
+
+Path['Stockton'] = dict()
+Path['Stockton']['San Francisco'] = 4
+
+Path['Monterey'] = dict()
+Path['Monterey']['San Francisco'] = 4
+Path['San Francisco'] = []
+
+
