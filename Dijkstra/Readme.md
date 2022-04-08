@@ -59,4 +59,26 @@ Path['Monterey'] = dict()
 Path['Monterey']['San Francisco'] = 4
 Path['San Francisco'] = []
 
+# definining the cost hash table
+# this will be used to maintain the lowest cost option
+cost = dict()
+cost['Long Beach'] = 8
+cost['Los Angeles'] = 15
+cost['San Bernardino'] = 6
+cost['Fresno'] = 3
+cost['Santa Barbara'] = 6
+cost['Monterey'] = 6
+cost['Stockton'] = 4
+cost['San Francisco'] = float('inf')
 
+# defining the parent hash table
+# this will be used to determine the calling node for the lowest cost option
+parent = dict()
+parent['Long Beach'] = 'San Diego'
+parent['Los Angeles'] = 'San Diego'
+parent['San Bernardino'] = 'San Diego'
+parent['Fresno'] = 'San Bernardino'
+parent['Santa Barbara'] = 'Los Angeles'
+parent['Monterey'] = 'Los Angeles'
+parent['Stockton'] = 'Fresno'
+parent['San Francisco'] = None
