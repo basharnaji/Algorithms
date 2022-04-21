@@ -13,3 +13,5 @@ This repo is my personal documentation of Algorithms as I learned them, primaril
 [5. Breadth-first Search](./BreadthFirstSearch)
 
 [6. Dijkstra](./Dijkstra/)
+
+I also provided [one main file](./utils.py) that has a sample of all these functions.
